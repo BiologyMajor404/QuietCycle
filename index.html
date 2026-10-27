@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тихий цикл · Конфиденциальность</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=PT+Sans:wght@400;700&display=swap">
+<style>
+  /* Layout: одна узкая колонка текста, как печатный документ; без карточек. */
+  :root {
+    --bg: #fbf7f9; --fg: #2a2027; --muted: #6c5d67; --accent: #7a4e6b; --rule: #e6dae1; --dot: #e0717f;
+    --display: "Lora", Georgia, "Times New Roman", serif;
+    --body: "PT Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #1b1519; --fg: #efe5ea; --muted: #b9a9b3; --accent: #d7a6c6; --rule: #3a2f36; --dot: #ec8794; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --bg: #1b1519; --fg: #efe5ea; --muted: #b9a9b3; --accent: #d7a6c6; --rule: #3a2f36; --dot: #ec8794; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font: 17px/1.65 var(--body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 72px; }
+  main { max-width: 40rem; margin: 0 auto; }
+  .mark { display: flex; align-items: center; gap: 10px; color: var(--accent); font-weight: 700; letter-spacing: .04em; font-size: 13px; text-transform: uppercase; }
+  h1 { font: 600 2.1rem/1.2 var(--display); margin: 18px 0 2px; text-wrap: balance; }
+  h2 { font: 600 1.2rem/1.3 var(--display); color: var(--accent); margin: 30px 0 4px; text-wrap: balance; }
+  p { margin: 0 0 8px; white-space: pre-line; }
+  .meta { color: var(--muted); font-size: 15px; }
+  .lead { font-size: 1.12rem; margin-top: 14px; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 48px 0 8px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M7.2 4.6 A7.6 7.6 0 1 0 14.8 4.6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="11" cy="3.2" r="2.1" fill="var(--dot)"/></svg>
+    Тихий цикл · Quiet Cycle
+  </div>
+<section lang="ru">
+<h1>Политика конфиденциальности</h1>
+<p class="meta">Приложение «Тихий цикл» (com.quietcycle.app). Редакция от 23 октября 2026 г.</p>
+<p class="lead">Коротко: мы не собираем никаких данных. Приложение не имеет доступа в интернет, всё, что вы записываете, остаётся только на вашем устройстве в зашифрованном виде.</p>
+<h2>Какие данные обрабатываются</h2>
+<p>Только записи, которые вы вносите сами: дни месячных, симптомы, настроение, температура, вес, сон, результаты тестов, дата родов, заметки и настройки. Они хранятся на устройстве и используются только для расчётов внутри Приложения.</p>
+<h2>Чего Приложение не делает</h2>
+<p>• не подключается к интернету (на Android у Приложения нет разрешения на доступ в сеть);
+• не использует аналитику, рекламу, трекеры, push-сервисы и сторонние SDK, передающие данные;
+• не требует регистрации, почты или номера телефона;
+• не попадает в облачные резервные копии Google и iCloud;
+• не продаёт и не передаёт данные кому-либо.</p>
+<h2>Защита</h2>
+<p>Записи зашифрованы алгоритмом AES-256-GCM. Ключ хранится в защищённом хранилище системы (Android Keystore, iOS Keychain), а при включённом PIN-коде выводится из PIN (PBKDF2). Если забыть PIN, восстановить данные можно только из собственной резервной копии.
+
+Биометрия (по желанию). Если вы включили вход по отпечатку или Face ID, отпечаток и лицо проверяет сама система — Приложение получает только ответ «да» или «нет». Для этого ключ данных дополнительно хранится в защищённом хранилище системы.</p>
+<h2>Разрешения</h2>
+<p>• Уведомления и вибрация — для напоминаний, которые вы включили сами. Они создаются на устройстве, без серверов.
+• Запуск после перезагрузки (Android) — чтобы напоминания сохранялись после перезагрузки телефона.
+• Биометрия — только если вы включили вход по отпечатку или Face ID.</p>
+<h2>Виджет и значок</h2>
+<p>Виджет (Android, по желанию). Если вы добавите виджет на главный экран, Приложение хранит для него на устройстве дату начала цикла и ожидаемых месячных в незашифрованном виде; виджет виден на экране, даже когда дневник заблокирован. Когда виджет убран, эти данные стираются. Замаскированный значок («Заметки», «Калькулятор») меняет только внешний вид на телефоне.</p>
+<h2>Импорт, экспорт и удаление</h2>
+<p>При импорте Приложение читает только тот файл, который вы сами выбрали, и ничего никуда не отправляет. Резервную копию, таблицу CSV или выписку для врача Приложение создаёт только по вашей команде и сохраняет туда, куда вы укажете. Резервная копия зашифрована паролем, таблица и выписка — нет. Удалить все данные можно в настройках («Удалить все данные») или удалив Приложение.</p>
+<h2>Дети</h2>
+<p>Приложение не предназначено для детей младше 13 лет и ни о ком не собирает данных.</p>
+<h2>Изменения и контакты</h2>
+<p>Об изменениях политики будет сказано в Приложении и на странице политики. Вопросы: rizzlershrekizzler@gmail.com</p>
+</section>
+
+  <hr>
+<section lang="en">
+<h1>Privacy policy</h1>
+<p class="meta">App “Quiet Cycle” (com.quietcycle.app). Version of October 23, 2026</p>
+<p class="lead">In short: we collect no data. The app has no internet access; everything you record stays only on your device, encrypted.</p>
+<h2>What data is processed</h2>
+<p>Only the entries you make yourself: period days, symptoms, mood, temperature, weight, sleep, test results, date of birth of your baby, notes and settings. They are stored on the device and used only for calculations within the App.</p>
+<h2>What the App does not do</h2>
+<p>• it does not connect to the internet (on Android the App has no network permission);
+• it uses no analytics, ads, trackers, push services or third-party SDKs that send data;
+• it requires no sign-up, email or phone number;
+• it is not included in Google or iCloud cloud backups;
+• it does not sell or share data with anyone.</p>
+<h2>Protection</h2>
+<p>Entries are encrypted with AES-256-GCM. The key is kept in the system’s secure storage (Android Keystore, iOS Keychain), and when a PIN is set it is derived from the PIN (PBKDF2). If you forget your PIN, data can only be restored from your own backup.
+
+Biometrics (optional). If you turn on fingerprint or Face ID unlock, your fingerprint and face are checked by the system itself — the App only receives a “yes” or “no”. For this, the data key is additionally kept in the system’s secure storage.</p>
+<h2>Permissions</h2>
+<p>• Notifications and vibration — for reminders you turned on yourself. They are created on the device, without servers.
+• Run after restart (Android) — so reminders survive a phone restart.
+• Biometrics — only if you turned on fingerprint or Face ID unlock.</p>
+<h2>Widget and icon</h2>
+<p>Widget (Android, optional). If you add the widget to your home screen, the App stores the cycle start date and the expected period date for it on the device, unencrypted; the widget is visible on screen even when the diary is locked. When the widget is removed, this data is erased. A disguised icon (“Notes”, “Calculator”) only changes how the App looks on your phone.</p>
+<h2>Import, export and deletion</h2>
+<p>When importing, the App reads only the file you chose yourself and sends nothing anywhere. Backups, CSV spreadsheets and doctor summaries are created only when you ask and saved where you choose. Backups are password-encrypted; spreadsheets and summaries are not. You can delete all data in settings (“Delete all data”) or by deleting the App.</p>
+<h2>Children</h2>
+<p>The App is not intended for children under 13 and does not collect data about anyone.</p>
+<h2>Changes and contact</h2>
+<p>Changes to this policy will be announced in the App and on the policy page. Questions: rizzlershrekizzler@gmail.com</p>
+</section>
+
+</main>
+</body>
+</html>
